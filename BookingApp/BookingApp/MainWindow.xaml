@@ -1,0 +1,22 @@
+﻿<Window x:Class="BookingApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BookingApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="720" Width="1080">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Top" Height="705" Background="DarkCyan">
+            <Button Name="LoginButton" Click="LoginButton_Click" Height="50" Margin="5" BorderThickness="5" BorderBrush="White" FontFamily="Arial" Foreground="White" Background="Transparent" FontSize="20">Login</Button>
+            <Button Name="RegisterButton" Click="RegisterButton_Click" Height="50" Margin="5" BorderThickness="5" BorderBrush="White" FontFamily="Arial" Foreground="White" Background="Transparent" FontSize="20">Register</Button>
+        </StackPanel>
+        <Frame Name="MainFrame" Visibility="Visible" NavigationUIVisibility="Hidden" Grid.Column="1"></Frame>
+    </Grid>
+</Window>

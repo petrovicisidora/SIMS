@@ -1,0 +1,105 @@
+﻿<Page x:Class="BookingApp.View.ApartmentsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BookingApp.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="864"
+      Title="ApartmentsPage">
+
+    <Grid Background="AliceBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="6*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Column="1" Grid.Row="0" FontFamily="Arial" Foreground="DarkCyan" Background="Transparent" FontSize="60" VerticalAlignment="Center" HorizontalAlignment="Center">Apartments</TextBlock>
+        <Grid Grid.Row="1" Margin="10 0 10 8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical" Margin="5 0" VerticalAlignment="Center">
+                <TextBlock Name="Code" Text="CODE: ">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="FontFamily" Value="Arial"/>
+                            <Setter Property="FontSize" Value="20"/>
+                            <Setter Property="Foreground" Value="DarkCyan"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+                <TextBlock Name="Name" Text="NAME: ">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="FontFamily" Value="Arial"/>
+                            <Setter Property="FontSize" Value="20"/>
+                            <Setter Property="Foreground" Value="DarkCyan"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+                <TextBlock Name="Stars" Text="STARS: ">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="FontFamily" Value="Arial"/>
+                            <Setter Property="FontSize" Value="20"/>
+                            <Setter Property="Foreground" Value="DarkCyan"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </StackPanel>
+            <Button Name="AddNew" Grid.Column="1" Content="Add New" Click="AddNew_Click" Visibility="Collapsed">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="FontWeight" Value="Bold"/>
+                        <Setter Property="FontFamily" Value="Arial"/>
+                        <Setter Property="FontSize" Value="25"/>
+                        <Setter Property="Background" Value="DarkCyan"/>
+                        <Setter Property="Foreground" Value="AliceBlue"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Name="Reserve" Grid.Column="1" Content="Reserve" Click="Reserve_Click" Visibility="Collapsed" IsEnabled="False">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="FontWeight" Value="Bold"/>
+                        <Setter Property="FontFamily" Value="Arial"/>
+                        <Setter Property="FontSize" Value="25"/>
+                        <Setter Property="Background" Value="DarkCyan"/>
+                        <Setter Property="Foreground" Value="AliceBlue"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
+        <DataGrid x:Name="datagrid" AutoGenerateColumns="False" Grid.Row="2" ItemsSource="{Binding Apartments, UpdateSourceTrigger=PropertyChanged}" Background="Transparent" HorizontalGridLinesBrush="DarkCyan" VerticalGridLinesBrush="DarkCyan" SelectedItem="{Binding Path=SelectedApartment}">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="FontFamily" Value="Arial"/>
+                    <Setter Property="Background" Value="DarkCyan"/>
+                    <Setter Property="Foreground" Value="AliceBlue"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.CellStyle>
+                <Style TargetType="{x:Type DataGridCell}">
+                    <Setter Property="Background" Value="AliceBlue"/>
+                    <Setter Property="Foreground" Value="DarkCyan"/>
+                    <Setter Property="FontFamily" Value="Arial"/>
+                    <Setter Property="BorderBrush" Value="DarkCyan"/>
+                </Style>
+            </DataGrid.CellStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header=" NAME" Width="1*"  Binding="{Binding Name}"/>
+                <DataGridTextColumn Header=" DESCRIPTION" Width="9*"  Binding="{Binding Description}"/>
+                <DataGridTextColumn Header=" ROOMS" Width="1*"  Binding="{Binding RoomCount}"/>
+                <DataGridTextColumn Header=" CAPACITY" Width="1*"  Binding="{Binding Capacity}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

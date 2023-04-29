@@ -1,0 +1,81 @@
+﻿<Page x:Class="BookingApp.View.UsersPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BookingApp.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="864"
+      Title="UsersPage">
+
+    <Grid Background="AliceBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="6*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.ColumnSpan="2" FontFamily="Arial" Foreground="DarkCyan" Background="Transparent" FontSize="60" VerticalAlignment="Center" HorizontalAlignment="Center">Users</TextBlock>
+            <ComboBox Grid.Row="1" Name="SearchType" ItemsSource="{Binding Path=Roles}" SelectedValue="{Binding Path=SelectedRole}">
+                <ComboBox.Style>
+                    <Style TargetType="{x:Type ComboBox}">
+                        <Setter Property="BorderBrush" Value="DarkCyan"/>
+                        <Setter Property="BorderThickness" Value="2"/>
+                        <Setter Property="Margin" Value="1"/>
+                        <Setter Property="Foreground" Value="DarkCyan"/>
+                        <Setter Property="FontFamily" Value="Arial"/>
+                        <Setter Property="FontSize" Value="16"/>
+                    </Style>
+                </ComboBox.Style>
+            </ComboBox>
+
+            <Button Name="Block" Grid.Column="1" Content="Block" Click="Block_Click" Visibility="Collapsed">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="FontWeight" Value="Bold"/>
+                        <Setter Property="FontFamily" Value="Arial"/>
+                        <Setter Property="FontSize" Value="25"/>
+                        <Setter Property="Background" Value="DarkCyan"/>
+                        <Setter Property="Foreground" Value="AliceBlue"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Setter Property="Margin" Value="10"/>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
+        <DataGrid x:Name="datagrid" AutoGenerateColumns="False" Grid.Row="2" ItemsSource="{Binding Users, UpdateSourceTrigger=PropertyChanged}" Background="Transparent" HorizontalGridLinesBrush="DarkCyan" VerticalGridLinesBrush="DarkCyan" SelectedItem="{Binding Path=SelectedUser}">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="FontFamily" Value="Arial"/>
+                    <Setter Property="Background" Value="DarkCyan"/>
+                    <Setter Property="Foreground" Value="AliceBlue"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.CellStyle>
+                <Style TargetType="{x:Type DataGridCell}">
+                    <Setter Property="Background" Value="AliceBlue"/>
+                    <Setter Property="Foreground" Value="DarkCyan"/>
+                    <Setter Property="FontFamily" Value="Arial"/>
+                    <Setter Property="BorderBrush" Value="DarkCyan"/>
+                </Style>
+            </DataGrid.CellStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header=" JMBG" Width="2*"  Binding="{Binding JMBG}"/>
+                <DataGridTextColumn Header=" EMAIL" Width="2*"  Binding="{Binding Email}"/>
+                <DataGridTextColumn Header=" NAME" Width="*"  Binding="{Binding Name}"/>
+                <DataGridTextColumn Header=" SURNAME" Width="*"  Binding="{Binding Surname}"/>
+                <DataGridTextColumn Header=" ROLE" Width="1*"  Binding="{Binding Role}"/>
+                <DataGridTextColumn Header=" PHONE" Width="2*"  Binding="{Binding Phone}"/>
+                <DataGridCheckBoxColumn Header=" BLOCKED" Width="0.8*"  Binding="{Binding Blocked}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

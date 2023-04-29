@@ -1,0 +1,25 @@
+﻿<Window x:Class="BookingApp.View.DecliningMessageWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BookingApp.View"
+        mc:Ignorable="d"
+        Title="DecliningMessageWindow" Height="400" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical">
+            <TextBlock Grid.Row="0" FontFamily="Arial" Foreground="DarkCyan" Background="Transparent" FontSize="20" Margin="20 10 20 0" VerticalAlignment="Bottom">Declining Reservation</TextBlock>
+            <TextBlock Name="ReservationDate" Grid.Row="0" FontFamily="Arial" Foreground="DarkCyan" Background="Transparent" FontSize="15" Margin="20 0" VerticalAlignment="Bottom" TextWrapping="Wrap">Date:</TextBlock>
+            <TextBlock Name="ReservationHotel" Grid.Row="0" FontFamily="Arial" Foreground="DarkCyan" Background="Transparent" FontSize="15" Margin="20 0" VerticalAlignment="Bottom" TextWrapping="Wrap">Hotel:</TextBlock>
+            <TextBlock Name="ReservationApartment" Grid.Row="0" FontFamily="Arial" Foreground="DarkCyan" Background="Transparent" FontSize="15" Margin="20 0" VerticalAlignment="Bottom" TextWrapping="Wrap">Apartment:</TextBlock>
+        </StackPanel>
+        <TextBlock Grid.Row="1" FontFamily="Arial" Foreground="DarkCyan" Background="Transparent" FontSize="20" Margin="20 10" VerticalAlignment="Top" TextWrapping="Wrap">Message:</TextBlock>
+        <TextBox Name="MessageInput" Grid.Row="1" FontFamily="Arial" Foreground="DarkCyan" BorderThickness="3" BorderBrush="DarkCyan" Background="White" FontSize="25" Margin="5 40 5 5" VerticalContentAlignment="Top"></TextBox>
+        <Button Name="Confirm" Click="Confirm_Click" Grid.Row="2" Margin="80 15" BorderThickness="5" BorderBrush="DarkCyan" FontFamily="Arial" Foreground="White" Background="DarkCyan" FontSize="30">Confirm</Button>
+    </Grid>
+</Window>

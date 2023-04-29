@@ -1,0 +1,8 @@
+*************;isidora;123;Test;Admin;*********;ADMIN;False
+2605998800091;owner;123;Test;Owner;061234567;OWNER;False
+2605998800092;0wner;123;Test;Owner;061234568;OWNER;False
+2605998800093;vlasnik;123;Test;Owner;061234569;OWNER;False
+1207999800074;guest;123;Test;Guest;069876543;GUEST;False
+1207999800075;Guest;123;Test;Guest;069876542;GUEST;False
+test;test;test;test;test;test;GUEST;False
+test2;test2;test2;test2;test2;test2;OWNER;False
